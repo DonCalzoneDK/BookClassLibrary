@@ -13,31 +13,9 @@ namespace BookClassLibrary
         /// <summary>
         /// default properties for Author
         /// </summary>
-        public string Author { get; protected set; }
+        public string Author { get; set; }
 
-
-        /// <summary>
-        /// Empty Constructor for Book
-        /// </summary>
-        public Book()
-        {
-
-        }
-
-        /// <summary>
-        /// Constructor for book class that takes four parameters
-        /// </summary>
-        /// <param name="title"></param>
-        /// <param name="author"></param>
-        /// <param name="pageNumber"></param>
-        /// <param name="isbn"></param>
-        public Book(string title, string author, int pageNumber, string isbn)
-        {
-            Title = title;
-            Author = author;
-            PageNumber = pageNumber;
-            Isbn13 = isbn;
-        }
+        
 
         /// <summary>
         /// Book Titles property that allows titles only over 2 chars. in length

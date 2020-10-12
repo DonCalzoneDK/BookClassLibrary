@@ -12,11 +12,11 @@ namespace UnitTestBook
         public void BookTitleLessThanTwoCharTest()
         {
             //Arrange
-            var book = new Book("1","Josh Lewis",200, "12c4567890123");
+            var book = new Book();
             //Act
-            string title = book.Title;
+            book.Title = "n";
             //Assert
-            Assert.AreEqual("Book Title",title);
+            Assert.Fail();
 
         }
 
@@ -25,11 +25,11 @@ namespace UnitTestBook
         public void BookPageNumberLessThanTenTest()
         {
             //Arrange
-            var book = new Book("Slaughterhouse Five", "Kurt Vonnegut", 2, "12c4567890123");
+            var book = new Book();
             //Act
-            int pageNum = book.PageNumber;
+            book.PageNumber = 9;
             //Assert
-            Assert.AreEqual(215, pageNum);
+            Assert.Fail();
 
         }
 
@@ -38,11 +38,11 @@ namespace UnitTestBook
         public void BookPageNumberMoreThanOneThousandTest()
         {
             //Arrange
-            var book = new Book("Slaughterhouse Five", "Kurt Vonnegut", 1002, "12c4567890123");
+            var book = new Book();
             //Act
-            int pageNum = book.PageNumber;
+            book.PageNumber = 1001;
             //Assert
-            Assert.AreEqual(215, pageNum);
+            Assert.Fail();
 
         }
 
@@ -52,11 +52,11 @@ namespace UnitTestBook
         public void IsbnIsLessThan13Test()
         {
             //Arrange
-            var book = new Book("Slaughterhouse Five", "Kurt Vonnegut", 215, "123456789012");
+            var book = new Book();
             //Act
-            string isbn = book.Isbn13;
+            book.Isbn13 = "123456789012";
             //Assert
-            Assert.AreEqual("1234567890123", isbn);
+            Assert.Fail();
 
         }
 
@@ -65,23 +65,42 @@ namespace UnitTestBook
         public void IsbnIsMoreThan13Test()
         {
             //Arrange
-            var book = new Book("Slaughterhouse Five", "Kurt Vonnegut", 215, "12345678901234");
+            var book = new Book();
             //Act
-            string isbn = book.Isbn13;
+            book.Isbn13 = "12345678901234";
             //Assert
-            Assert.AreEqual("1234567890123", isbn);
+            Assert.Fail();
+
+        }
+        
+        
+        [TestMethod]
+        public void IsbnIsGoodLengthOf13Test()
+        {
+            Book book = new Book();
+
+            book.Isbn13 = "1234567890123";
+        }
+
+        [TestMethod]
+        public void AmountOfPageIsGoodTest()
+        {
+            Book book = new Book();
+
+            book.PageNumber = 302;
 
         }
 
         [TestMethod]
-        public void BookValidValuesTest()
+        public void BookTitleIsGoodTest()
         {
             //Arrange
-            Book book = new Book("Slaughterhouse Five", "Kurt Vonnegut", 215, "1234567890123");
+            Book book = new Book();
+
+            book.Title = "Kurt Vonnegut";
+
         }
 
-        /*
-        //used if there wasn't an object of Book
         [TestMethod]
         public void AuthorTest()
         {
@@ -92,7 +111,7 @@ namespace UnitTestBook
             Assert.AreEqual(author, book.Author);
 
         }
-        */
+
 
 
     }

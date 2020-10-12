@@ -6,20 +6,31 @@ namespace BookClassLibrary
     public class Book
     {
 
-        //Create a “Class Library (.NET core)” project.
-        //Create a class Book with properties (note the different constraints):
-        //Title, minimum 2 characters long  Author  Page number, 10 < pagenumber <= 1000
-        //Isbn13, must be a text string of exactly 13 characters.
-        //If the above constraints are not complied with, appropriate exceptions must be thrown .
-        //This also applies to constructors. Add a unit test to your project. Test your Book class.
-        //Your test test should have a good “Code Coverage” 
         private string _title;
         private int _pageNumber;
         private string _isbn;
 
+        /// <summary>
+        /// default properties for Author
+        /// </summary>
         public string Author { get; protected set; }
 
 
+        /// <summary>
+        /// Empty Constructor for Book
+        /// </summary>
+        public Book()
+        {
+
+        }
+
+        /// <summary>
+        /// Constructor for book class that takes four parameters
+        /// </summary>
+        /// <param name="title"></param>
+        /// <param name="author"></param>
+        /// <param name="pageNumber"></param>
+        /// <param name="isbn"></param>
         public Book(string title, string author, int pageNumber, string isbn)
         {
             Title = title;
@@ -28,11 +39,9 @@ namespace BookClassLibrary
             Isbn13 = isbn;
         }
 
-   
-
-
-
-
+        /// <summary>
+        /// Book Titles property that allows titles only over 2 chars. in length
+        /// </summary>
         public string Title
         {
             get { return this._title;}
@@ -46,6 +55,10 @@ namespace BookClassLibrary
             }
         }
 
+        /// <summary>
+        /// Books PageNumber property which will throw an error if the int value
+        /// is below 10 or over 1000
+        /// </summary>
         public int PageNumber
         {
             get { return this._pageNumber; }
@@ -59,6 +72,10 @@ namespace BookClassLibrary
             }
         }
 
+        /// <summary>
+        /// Books Isbn13 property which only allows strings that are
+        /// 13 chars in length
+        /// </summary>
         public string Isbn13
         {
             get { return this._isbn; }

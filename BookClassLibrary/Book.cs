@@ -22,14 +22,15 @@ namespace BookClassLibrary
         /// </summary>
         public string Title
         {
-            get { return this._title;}
+            get { return _title;}
             set
             {
                 if (value.Length < 2)
                 {
                     throw new ArgumentException("Book Titles must be a minimum of two characters. Please try again.");
-                    this._title = value;
+                    
                 }
+                _title = value;
             }
         }
 
@@ -39,14 +40,15 @@ namespace BookClassLibrary
         /// </summary>
         public int PageNumber
         {
-            get { return this._pageNumber; }
+            get { return _pageNumber; }
             set
             {
                 if (value < 10 || value >= 1001)
                 {
                     throw new ArgumentException("Page length is either too large or too small, please try again.");
-                    this._pageNumber = value;
+                    
                 }
+                _pageNumber = value;
             }
         }
 
@@ -56,14 +58,15 @@ namespace BookClassLibrary
         /// </summary>
         public string Isbn13
         {
-            get { return this._isbn; }
+            get { return _isbn; }
             set
             {
                 if (value.Length != 13)
                 {
                     throw new ArgumentException("International Standard Book Number (Isbn) must be 13 characters long. Please try again.");
-                    this._isbn = value;
+                    
                 }
+                _isbn = value;
             }
         }
 
